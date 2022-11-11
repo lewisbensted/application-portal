@@ -3,7 +3,7 @@ import Applications from "./Applications";
 import Header from "./Header";
 
 function App() {
-  document.title = "iwoca | Application Portal";
+  document.title = "Application Portal";
   return (
     <div className="App">
       <Header />

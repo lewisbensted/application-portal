@@ -1,5 +1,4 @@
 import React from "react";
-import LogoSvg from "./logo.svg";
 import styles from "./Header.module.css";
 
 const Header = () => {
