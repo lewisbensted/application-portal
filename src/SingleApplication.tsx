@@ -1,32 +1,32 @@
-import React from "react";
 import styles from "./SingleApplication.module.css";
+import { Application } from "./__fixtures__/applications.fixture";
 
-const SingleApplication = ({ application }) => {
+const SingleApplication = (props:{application: Application}) => {
   return (
     <div className={styles.SingleApplication}>
       <div className={styles.cell}>
         <sub>Company</sub>
-        {application.company}
+        {props.application.company}
       </div>
       <div className={styles.cell}>
         <sub>Name</sub>
-        {application.first_name} {application.last_name}
+        {props.application.firstName} {props.application.lastName}
       </div>
       <div className={styles.cell}>
         <sub>Email</sub>
-        {application.email}
+        {props.application.email}
       </div>
       <div className={styles.cell}>
         <sub>Loan Amount</sub>
-        {application.loan_amount}
+        {props.application.loanAmount}
       </div>
       <div className={styles.cell}>
         <sub>Application Date</sub>
-        {application.date_created}
+        {props.application.dateCreated}
       </div>
       <div className={styles.cell}>
         <sub>Expiry date</sub>
-        {application.expiry_date}
+        {props.application.expiryDate}
       </div>
     </div>
   );
