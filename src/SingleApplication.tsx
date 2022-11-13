@@ -10,7 +10,7 @@ const SingleApplication = (props:{application: Application}) => {
 			</div>
 			<div className={styles.cell}>
 				<sub>Name</sub>
-				{props.application.firstName} {props.application.lastName}
+				{props.application.first_name} {props.application.last_name}
 			</div>
 			<div className={styles.cell}>
 				<sub>Email</sub>
@@ -18,15 +18,15 @@ const SingleApplication = (props:{application: Application}) => {
 			</div>
 			<div className={styles.cell}>
 				<sub>Loan Amount</sub>
-				{props.application.loanAmount}
+				{props.application.loan_amount}
 			</div>
 			<div className={styles.cell}>
 				<sub>Application Date</sub>
-				{props.application.dateCreated}
+				{props.application.date_created}
 			</div>
 			<div className={styles.cell}>
 				<sub>Expiry date</sub>
-				{props.application.expiryDate}
+				{props.application.expiry_date}
 			</div>
 		</div>
 	)
