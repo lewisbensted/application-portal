@@ -3,7 +3,7 @@ import { Application } from './__fixtures__/applications.fixture'
 
 const SingleApplication = (props:{application: Application}) => {
 	return (
-		<div className={styles.SingleApplication}>
+		<div className={styles.SingleApplication} data-testid={`test-id-${props.application.id}`}>
 			<div className={styles.cell}>
 				<sub>Company</sub>
 				{props.application.company}
@@ -30,6 +30,6 @@ const SingleApplication = (props:{application: Application}) => {
 			</div>
 		</div>
 	)
-};
+}
 
 export default SingleApplication

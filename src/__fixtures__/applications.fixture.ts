@@ -1,5 +1,5 @@
 export interface Application {
-  guid: string,
+  id: number,
   loan_amount: number,
   first_name: string,
   last_name: string,
@@ -7,17 +7,27 @@ export interface Application {
   email: string,
   date_created: string,
   expiry_date: string,
+  loan_history: Loan[]
+}
+
+export interface Loan{
+	interest: number,
+	interest_rate: number,
+	loan_started: string,
+	loan_ended: string,
+	principle: number
 }
 
 export const getApplicationsFixture: Application[] = [
 	{
-		guid: '8a8f6cbc-77a1-4086-8968-a57816f4ff60',
+		id: 0,
 		loan_amount: 37597,
 		first_name: 'Nikita',
 		last_name: 'Kruschev',
 		company: 'CPSU',
 		email: 'thegeneralsecretary@CPSU.com',
-		date_created: '2021-08-10',
-		expiry_date: '2021-12-02',
+		date_created: '2021-08-10T00:00:00Z',
+		expiry_date: '2021-12-02T00:00:00Z',
+		loan_history: []
 	},
-];
+]
