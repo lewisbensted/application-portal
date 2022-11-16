@@ -15,9 +15,9 @@ const Applications = () => {
 	
 	function getApiData(pageNumber: number, numberToLoad: number){
 		axios.get(`http://localhost:3001/api/applications?_page=${pageNumber}&_limit=${numberToLoad}`)
-			.then(data=>{
-				if (data.data.length===0){setAllDataLoaded(true)}
-				setVisibleApplications([...visibleApplications, ...data.data])
+			.then(response=>{
+				if (response.data.length===0){setAllDataLoaded(true)}
+				setVisibleApplications([...visibleApplications, ...response.data])
 				setPageNumber(pageNumber+1)
 				setIsLoading(false)})
 			.catch(error=>console.log(error.message))

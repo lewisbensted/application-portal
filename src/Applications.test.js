@@ -1,7 +1,6 @@
-import { fireEvent, render, screen, waitFor, act } from '@testing-library/react'
-import Applications from './Applications'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import nock from 'nock'
-import axios from 'axios'
+import Applications from './Applications'
 
 
 describe('test api calls', ()=> {
@@ -30,17 +29,9 @@ describe('test api calls', ()=> {
 		
 					
 		const {getByTestId, findByTestId} = render(<Applications />)
-		fireEvent.click(getByTestId('button'))
 		expect(getByTestId('test-id-0')).toHaveTextContent('Nikita')
-		await waitFor(()=>{expect(findByTestId('test-id-1')).toHaveTextContent('lew jam')})
-		
-		//.toHaveTextContent('Nikita Kruschev')})
-		//expect(findByTestId('test-id-0')).toHaveTextContent('CPSU')})
-		//await waitFor(() => {expect(findByTestId('test-id-1')).toHaveTextContent('Bill Lake')
-		//expect(findByTestId('test-id-1')).toHaveTextContent('TFL')})
-		//await waitFor(async() => expect(await findByTestId('test-id-0')).toHaveTextContent('CPSU'), {timeout:3000})
-		//await waitFor(async() => expect(await findByTestId('test-id-1')).toHaveTextContent('Bill Lake')), {timeout:3000}
-		//await waitFor(async () => expect(await findByTestId('test-id-1')).toHaveTextContent('TFL'), {timeout:3000})		
+		fireEvent.click(getByTestId('button'))
+		await waitFor(()=>{expect(getByTestId('test-id-1')).toHaveTextContent('lew jam')})	
 	})})
 
     
