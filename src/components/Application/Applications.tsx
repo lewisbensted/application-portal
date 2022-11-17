@@ -1,23 +1,23 @@
-import SingleApplication from './SingleApplication'
-import { Application, getApplicationsFixture } from './__fixtures__/applications.fixture'
+import SingleApplication from '../../SingleApplication'
+import { Application } from '../../__fixtures__/applications.fixture'
 import styles from './Applications.module.css'
-import { Button } from './ui/Button/Button'
+import { Button } from '../Button/Button'
 import { useState } from 'react'
 import axios from 'axios'
-import { Loader } from './ui/Button/Loader'
+import { Loader } from '../Loader/Loader'
 
 
 const Applications = () => {
-	const [visibleApplications, setVisibleApplications] = useState<Application[]>([getApplicationsFixture[0]])
+	const [visibleApplications, setVisibleApplications] = useState<Application[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [pageNumber, setPageNumber] = useState<number>(1)
 	const [allDataLoaded, setAllDataLoaded] = useState<boolean>(false)
 	
 	function getApiData(pageNumber: number, numberToLoad: number){
 		axios.get(`http://localhost:3001/api/applications?_page=${pageNumber}&_limit=${numberToLoad}`)
-			.then(response=>{
-				if (response.data.length===0){setAllDataLoaded(true)}
-				setVisibleApplications([...visibleApplications, ...response.data])
+			.then(res=>{
+				if (res.data.length===0){setAllDataLoaded(true)}
+				setVisibleApplications([...visibleApplications, ...res.data])
 				setPageNumber(pageNumber+1)
 				setIsLoading(false)})
 			.catch(error=>console.log(error.message))
@@ -37,7 +37,8 @@ const Applications = () => {
 						<Button onClick={() => {	
 							setIsLoading(true)
 							getApiData(pageNumber, 5)
-						}}> Load more </Button>}
+						}}> Load more </Button>
+				}
 			</div>
 		</div>
 	)
