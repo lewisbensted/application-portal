@@ -1,3 +1,6 @@
+import {ClipLoader } from 'react-spinners'
+
+
 export const Loader = () => {
-	return <h1>loading...</h1>
+	return <ClipLoader color='var(--color-denim-25)'/>
 }
