@@ -1,4 +1,4 @@
-import SingleApplication from '../../SingleApplication'
+import SingleApplication from '../SingleApplication/SingleApplication'
 import { Application } from '../../__fixtures__/applications.fixture'
 import styles from './Applications.module.css'
 import { Button } from '../Button/Button'

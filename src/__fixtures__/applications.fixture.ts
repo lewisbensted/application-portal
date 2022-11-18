@@ -18,7 +18,7 @@ export interface Loan{
 	principle: number
 }
 
-export const getApplicationsFixture: Application[] = [
+export const applicationsFixture: Application[] = [
 	{
 		id: 0,
 		loan_amount: 37597,

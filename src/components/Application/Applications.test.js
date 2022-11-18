@@ -1,8 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import nock from 'nock'
+import { applicationsFixture } from '../../__fixtures__/applications.fixture'
 import Applications from './Applications'
-import axios from 'axios'
-
 
 describe('test api calls', ()=> {
 	test('test succesfull api call', async () => {
@@ -14,22 +13,12 @@ describe('test api calls', ()=> {
 			})
 			.get('/api/applications')
 			.query({_page: /\d+/, _limit: /\d+/})
-			.reply(200, [{
-				id: 0,
-				loan_amount: 37597,
-				first_name: 'Nikita',
-				last_name: 'Kruschev',
-				company: 'CPSU',
-				email: 'thegeneralsecretary@CPSU.com',
-				date_created: '2021-08-10T00:00:00Z',
-				expiry_date: '2021-12-02T00:00:00Z',
-				loan_history: []
-			}])
+			.reply(200, applicationsFixture)
 
 		const {getByTestId, queryByTestId} = render(<Applications />)
 		expect(queryByTestId('test-id-0')).not.toBeInTheDocument()
 		fireEvent.click(getByTestId('button'))
-		await waitFor(()=>{expect(getByTestId('test-id-0')).toHaveTextContent('Nikita Kruschev')})	
+		await waitFor(()=>{expect(getByTestId('test-id-0')).toBeInTheDocument()})	
 	})})
 
     
