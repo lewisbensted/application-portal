@@ -1,12 +1,12 @@
 import './App.css'
-import Applications from './components/Application/Applications'
+import Applications from './components/Applications/Applications'
 import Header from './components/Header/Header'
 
 function App() {
 	document.title = 'Application Portal'
 	return (
 		<div className="App">
-			<Header />         
+			<Header />
 			<Applications />
 		</div>
 	)

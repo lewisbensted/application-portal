@@ -13,15 +13,30 @@ const customStyles = {
 	},
 }
 
-export const ErrorModal = (props:{isError:boolean}) =>{
+export const ErrorModal = (props: {
+	isError: boolean
+	onClose: () => void
+}) => {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(props.isError)
-	return(
+	return (
 		<div>
-			<Modal isOpen = {modalIsOpen} style={customStyles} ariaHideApp={false}>
+			<Modal isOpen={modalIsOpen} style={customStyles} appElement={document.getElementsByClassName('App')}>
 				<h2>Something went wrong!</h2>
-				<div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-					<Button onClick={()=>setModalIsOpen(false)}>OK</Button></div>
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
+					<Button
+						onClick={() => {
+							setModalIsOpen(false)
+							props.onClose()
+						}}>
+						OK
+					</Button>
+				</div>
 			</Modal>
-			
-		</div>)
+		</div>
+	)
 }
