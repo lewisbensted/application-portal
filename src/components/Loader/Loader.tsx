@@ -1,5 +1,13 @@
 import { ClipLoader } from 'react-spinners'
 
 export const Loader = () => {
-	return <ClipLoader color="var(--color-denim-25)" />
+	return (
+		<div
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+			}}>
+			<ClipLoader color="var(--color-denim-15)" size="50px" />
+		</div>
+	)
 }

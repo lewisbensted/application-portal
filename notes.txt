@@ -1,2 +1,0 @@
-is it ok to have typescript files with javascript tests?
-is it better to call the API once and update what is displayed based on the single call, or is it better to call it every time new data should be rendered?

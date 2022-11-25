@@ -5,10 +5,12 @@
   border-radius: 8px;
   color: var(--color-white-100);
   font-weight: bold;
-  padding: 8px 24px;
+  padding: 10px 24px;
   text-align: center;
   white-space: nowrap;
   transition: background-color 0.3s;
+  margin-bottom: 20px;
+  display: flex;
 }
 
 .button:focus {

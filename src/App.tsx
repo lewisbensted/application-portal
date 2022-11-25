@@ -6,7 +6,7 @@ function App() {
 	document.title = 'Application Portal'
 	return (
 		<div className="App">
-			<Header />
+			<Header size={1}>Application Portal</Header>
 			<Applications />
 		</div>
 	)

@@ -6,7 +6,6 @@ import Applications from './Applications'
 describe('test api calls', () => {
 	test('test succesfull api call', async () => {
 		nock('http://localhost:3001')
-			.persist()
 			.defaultReplyHeaders({
 				'access-control-allow-origin': '*',
 				'access-control-allow-credentials': 'true',
@@ -17,9 +16,29 @@ describe('test api calls', () => {
 
 		const { getByTestId, queryByTestId } = render(<Applications />)
 		expect(queryByTestId('test-id-0')).not.toBeInTheDocument()
-		fireEvent.click(getByTestId('button'))
+		fireEvent.click(getByTestId('load-button'))
 		await waitFor(() => {
 			expect(getByTestId('test-id-0')).toBeInTheDocument()
+		})
+	})
+	test('test unsuccesfull api call', async () => {
+		nock('http://localhost:3001')
+			.defaultReplyHeaders({
+				'access-control-allow-origin': '*',
+				'access-control-allow-credentials': 'true',
+			})
+			.get('/api/applications')
+			.query({ _page: /\d+/, _limit: /\d+/ })
+			.reply(400, 'test error message')
+
+		const { getByTestId } = render(<Applications />)
+		fireEvent.click(getByTestId('load-button'))
+		await waitFor(() => {
+			expect(getByTestId('error-modal')).toHaveTextContent(
+				'Something went wrong!'
+			)
+			expect(getByTestId('error-modal')).toContainElement(getByTestId('error-button'))
+			expect(getByTestId('error-button')).toHaveTextContent('OK')
 		})
 	})
 })

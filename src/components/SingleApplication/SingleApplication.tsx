@@ -3,19 +3,28 @@ import { Application } from '../../__fixtures__/applications.fixture'
 import { ApplicationModal } from '../ApplicationModal/ApplicationModal'
 import { useState } from 'react'
 
-const SingleApplication = (props: { application: Application}) => {
+const SingleApplication = (props: { application: Application }) => {
 	const dateCreated = new Date(props.application.date_created)
 	const expiryDate = new Date(props.application.expiry_date)
-	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 	return (
-		<div onClick={()=>{setIsModalOpen(true)}}>
-			{isModalOpen? <h1>yes</h1>: <h1>no</h1>}
-			{isModalOpen? <ApplicationModal application={props.application} isOpen={isModalOpen} onClose={()=>{setIsModalOpen(false)}}/>: null}
+		<div>
+			{modalIsOpen ? (
+				<ApplicationModal
+					application={props.application}
+					isOpen={modalIsOpen}
+					onClose={() => {
+						setModalIsOpen(false)
+					}}
+				/>
+			) : null}
+			{/*'Is there a way of rendering this without the tertiary operator?'*/}
 			<div
 				className={styles.SingleApplication}
-				data-testid={`test-id-${props.application.id}`}>
-				
-			
+				data-testid={`test-id-${props.application.id}`}
+				onClick={() => {
+					setModalIsOpen(true)
+				}}>
 				<div className={styles.cell}>
 					<sub>Company</sub>
 					{props.application.company}

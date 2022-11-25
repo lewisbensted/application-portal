@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { applicationsFixture } from '../../__fixtures__/applications.fixture'
 import SingleApplication from './SingleApplication'
 
-test('displays heading correctly', () => {
+xtest('displays heading correctly', () => {
 	const { getByTestId } = render(
 		<SingleApplication application={applicationsFixture[0]} />
 	)

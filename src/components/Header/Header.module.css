@@ -1,10 +1,20 @@
 .Header {
-  padding: 20px 0;
+  padding: 10px 0;
   margin: 0 auto;
   text-align: center;
 }
 
 .Header h1 {
-  color: #143b6b;
+  color: var(--color-denim-15);
   font-weight: 800;
+}
+
+.Header h2 {
+  color: var(--color-denim-15);
+  font-weight: 600;
+}
+
+.Header h3 {
+  color: var(--color-denim-15);
+  font-weight: 300;
 }
