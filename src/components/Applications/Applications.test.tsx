@@ -4,7 +4,7 @@ import { applicationsFixture } from '../../__fixtures__/applications.fixture'
 import Applications from './Applications'
 
 describe('test api calls', () => {
-	test('test succesfull api call', async () => {
+	xtest('test succesfull api call', async () => {
 		nock('http://localhost:3001')
 			.defaultReplyHeaders({
 				'access-control-allow-origin': '*',
@@ -21,7 +21,7 @@ describe('test api calls', () => {
 			expect(getByTestId('test-id-0')).toBeInTheDocument()
 		})
 	})
-	test('test unsuccesfull api call', async () => {
+	xtest('test unsuccesfull api call', async () => {
 		nock('http://localhost:3001')
 			.defaultReplyHeaders({
 				'access-control-allow-origin': '*',

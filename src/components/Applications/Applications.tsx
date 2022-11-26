@@ -6,21 +6,30 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Loader } from '../Loader/Loader'
 import { ErrorModal } from '../ErrorModal/ErrorModal'
+import Header from '../Header/Header'
 
 const Applications = () => {
 	const increment = 5
+	const numberToLoad = 20
+	const [numberVisible, setNumberVisible] = useState<number>(increment)
+	const [page, setPage] = useState<number>(1)
 	const [applications, setApplications] = useState<Application[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
-	const [numberOfVisibleApplications, setNumberOfVisibleApplications] =
-		useState<number>(increment)
 	const [isError, setIsError] = useState<boolean>(false)
+	const [allDataLoaded, setAllDataLoaded] = useState<boolean>(false)
 
 	function getApiData() {
 		setIsLoading(true)
 		axios
-			.get('http://localhost:3001/api/applications')
+			.get(
+				`http://localhost:3001/api/applications?_page=${page}&_limit=${numberToLoad}`
+			)
 			.then(res => {
-				setApplications([...res.data])
+				setApplications([...applications, ...res.data])
+				setPage(page + 1)
+				if (res.data.length === 0) {
+					setAllDataLoaded(true)
+				}
 			})
 			.catch(error => {
 				console.log(error.message)
@@ -31,13 +40,13 @@ const Applications = () => {
 			})
 	}
 
-	useEffect(() => getApiData(), [])
+	useEffect(() => {
+		getApiData()
+	}, [])
 
 	return (
 		<div className={styles.application}>
-			{isLoading ? (
-				<Loader />
-			) : isError ? (
+			{isError ? (
 				<ErrorModal
 					isError={isError}
 					onClose={() => {
@@ -46,22 +55,21 @@ const Applications = () => {
 				/>
 			) : (
 				<div className={styles.Applications}>
-					{applications
-						.slice(0, numberOfVisibleApplications)
-						.map((application, index) => (
-							<SingleApplication application={application} key={index} />
-						))}
-					{numberOfVisibleApplications === applications.length ? null : (
+					{applications.slice(0, numberVisible).map((application, index) => (
+						<SingleApplication application={application} key={index} />
+					))}
+					{isLoading ? (
+						<Loader />
+					) : allDataLoaded ? (
+						<Header size={2}>All data loaded!</Header>
+					) : (
 						<Button
 							testId="load-button"
 							onClick={() => {
-								if (applications.length === 0) {
+								if (numberVisible + increment >= applications.length) {
 									getApiData()
-								} else {
-									setNumberOfVisibleApplications(
-										numberOfVisibleApplications + increment
-									)
 								}
+								setNumberVisible(numberVisible + increment)
 							}}>
 							Load more applications
 						</Button>

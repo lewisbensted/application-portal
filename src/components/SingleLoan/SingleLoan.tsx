@@ -4,12 +4,10 @@ import { Loan } from '../../__fixtures__/applications.fixture'
 const SingleLoan = (props: { loan: Loan }) => {
 	const loanStarted = new Date(props.loan.loan_started)
 	const loanEnded = new Date(props.loan.loan_ended)
-	const interest = Number(
-		(props.loan.principle * props.loan.interest_rate).toFixed(2)
-	)
-	const repayment = interest + props.loan.principle
+	const interest = (props.loan.principle * props.loan.interest_rate).toFixed(2)
+	const repayment = (Number(interest) + props.loan.principle).toFixed(2)
 	return (
-		<div className={styles.SingleLoan}>
+		<div className={styles.SingleLoan} data-testid="single-loan">
 			<div className={styles.cell}>{`${loanStarted.getDate()}-${
 				loanStarted.getMonth() + 1
 			}-${loanStarted.getFullYear()}`}</div>

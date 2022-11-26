@@ -37,13 +37,13 @@ export const ApplicationModal = (props: {
 			<div className={styles.ApplicationModal}>
 				<div className={styles.Info}>
 					<div className={styles.PersonalInfo}>
-						<img src={props.application.avatar} alt={require('./image_unavailable.png')}></img>
+						<img src={props.application.avatar} alt=" "></img>
 						<div>
 							<div className={styles.cell}>
 								{`${props.application.first_name} ${props.application.last_name}`}
 							</div>
 							<div className={styles.cell}>{props.application.company}</div>
-							<a className={styles.email}  href={props.application.email}>
+							<a className={styles.email} href={props.application.email}>
 								{props.application.email}
 							</a>
 						</div>

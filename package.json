@@ -7,7 +7,8 @@
         "FE-build": "react-scripts build",
         "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
         "BE-start": "node ./json-server/index.js",
-        "start": "concurrently --kill-others \"npm:BE-start\" \"npm:FE-start\""
+        "start": "concurrently --kill-others \"npm:BE-start\" \"npm:FE-start\"",
+        "test:watch": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --watch"
     },
     "dependencies": {
         "@faker-js/faker": "^6.0.0-alpha.7",

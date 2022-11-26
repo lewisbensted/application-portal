@@ -4,12 +4,13 @@
 
 .LoanHistory {
   padding: 15px;
-  font-weight: 800
+  font-weight: 900;
+  color: var(--color-denim-15)
 }
 
 .LoanGrid {
   display: grid;
-  grid-template-columns: 26% 26% 16% 16% 16%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   padding: 0px 10px;
   background-color: white;
   box-shadow: 0px 5px 16px 0px rgba(173, 200, 215, 0.25);
@@ -19,7 +20,8 @@
 
 .LoanInfo{
   display: grid;
-  grid-template-columns: 33% 33% auto
+  grid-template-columns: 33% 33% auto;
+  color: var(--color-denim-15)
 }
 
 .Info {
@@ -39,6 +41,7 @@
   padding: 5px 5px;
   margin-bottom: 0%;
   font-weight: 600;
+  color: var(--color-denim-15)
 }
 
 .email {
@@ -62,6 +65,7 @@
   margin-bottom: 0%;
   font-weight: 600;
   font-size: 150%;
+  color: var(--color-denim-15)
 }
 
 .cellAmount sub {
