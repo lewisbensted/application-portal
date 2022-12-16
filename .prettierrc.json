@@ -1,12 +1,12 @@
 {
     "trailingComma": "es5",
     "tabWidth": 2,
-    "semi": false,
     "singleQuote": true,
     "useTabs": true,
     "bracketSpacing": true,
-    "bracketSameLine": true,
+    "bracketSameLine": false,
     "arrowParens":"avoid",
     "parser":"typescript",
+    "semi": false,
     "endOfLine": "crlf"
 }

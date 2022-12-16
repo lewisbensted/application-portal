@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Header from './Header'
 
-xtest('displays heading correctly', () => {
-	render(<Header />)
-	const linkElement = screen.getByTestId('header').textContent
-	expect(linkElement).toEqual('Application Portal')
+test('test header component functions correctly', () => {
+	const { getByTestId } = render(<Header>Test Heading</Header>)
+	const header = getByTestId('header')
+	expect(header.textContent).toEqual('Test Heading')
 })

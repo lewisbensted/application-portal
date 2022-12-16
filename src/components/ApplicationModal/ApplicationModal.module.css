@@ -44,13 +44,6 @@
   color: var(--color-denim-15)
 }
 
-.email {
-  text-align: left;
-  border-left: 0px solid #eee;
-  padding: 0 5px;
-  margin-bottom: 0%;
-}
-
 .cell sub {
   display: block;
   font-size: 0.7rem;

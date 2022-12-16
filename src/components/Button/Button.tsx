@@ -4,18 +4,14 @@ import styles from './Button.module.css'
 export const Button = (props: {
 	onClick: () => void
 	children: React.ReactNode
-	testId: string
 }) => {
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-			}}>
+		<div className={styles.ButtonDiv}>
 			<button
-				data-testid={props.testId}
 				className={styles.button}
-				onClick={props.onClick}>
+				data-testid="button"
+				onClick={props.onClick}
+			>
 				{props.children}
 			</button>
 		</div>

@@ -64,13 +64,13 @@ const Applications = () => {
 						<Header size={2}>All data loaded!</Header>
 					) : (
 						<Button
-							testId="load-button"
 							onClick={() => {
 								if (numberVisible + increment >= applications.length) {
 									getApiData()
 								}
 								setNumberVisible(numberVisible + increment)
-							}}>
+							}}
+						>
 							Load more applications
 						</Button>
 					)}

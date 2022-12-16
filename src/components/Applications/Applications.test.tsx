@@ -37,7 +37,9 @@ describe('test api calls', () => {
 			expect(getByTestId('error-modal')).toHaveTextContent(
 				'Something went wrong!'
 			)
-			expect(getByTestId('error-modal')).toContainElement(getByTestId('error-button'))
+			expect(getByTestId('error-modal')).toContainElement(
+				getByTestId('error-button')
+			)
 			expect(getByTestId('error-button')).toHaveTextContent('OK')
 		})
 	})

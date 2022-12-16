@@ -46,6 +46,13 @@ export const applicationsFixture: Application[] = [
 				loan_started: '2020-02-19T22:55:15Z',
 				principle: 44355,
 			},
+			{
+				interest: 1010,
+				interest_rate: 0.05,
+				loan_ended: '2021-03-17T01:53:34Z',
+				loan_started: '2021-01-29T22:39:36Z',
+				principle: 54797,
+			},
 		],
 	},
 ]

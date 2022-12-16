@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Header.module.css'
 
-const Header = (props: { children: React.ReactNode; size: number }) => {
+const Header = (props: { children: React.ReactNode; size?: number }) => {
 	return (
 		<div className={styles.Header} data-testid="header">
 			{props.size === 1 ? (

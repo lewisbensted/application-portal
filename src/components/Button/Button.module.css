@@ -1,3 +1,8 @@
+.ButtonDiv {
+  justify-content: center;
+  display: flex;
+}
+
 .button {
   background-color: var(--color-denim-15);
   border: 2px solid transparent;
@@ -10,7 +15,6 @@
   white-space: nowrap;
   transition: background-color 0.3s;
   margin-bottom: 20px;
-  display: flex;
 }
 
 .button:focus {

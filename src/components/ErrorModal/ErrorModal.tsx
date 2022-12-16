@@ -24,16 +24,17 @@ export const ErrorModal = (props: {
 		<Modal
 			isOpen={ModalIsOpen}
 			style={customStyles}
-			appElement={document.getElementsByClassName('App')}>
+			appElement={document.getElementsByClassName('App')}
+		>
 			<div data-testid="error-modal" className="ErrorModal">
 				<Header size={2}>Something went wrong!</Header>
-				<Header size={3}>Please try loading the applications again.</Header>
+				<Header>Please try loading the applications again.</Header>
 				<Button
-					testId="error-button"
 					onClick={() => {
 						setModalIsOpen(false)
 						props.onClose()
-					}}>
+					}}
+				>
 					OK
 				</Button>
 			</div>

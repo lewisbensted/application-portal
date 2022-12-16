@@ -19,12 +19,14 @@ const SingleApplication = (props: { application: Application }) => {
 				/>
 			) : null}
 			{/*'Is there a way of rendering this without the tertiary operator?'*/}
+
 			<div
 				className={styles.SingleApplication}
-				data-testid={`test-id-${props.application.id}`}
+				data-testid={`single-application-${props.application.id}`}
 				onClick={() => {
 					setModalIsOpen(true)
-				}}>
+				}}
+			>
 				<div className={styles.cell}>
 					<sub>Company</sub>
 					{props.application.company}

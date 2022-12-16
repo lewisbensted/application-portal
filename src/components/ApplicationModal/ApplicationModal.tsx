@@ -33,38 +33,41 @@ export const ApplicationModal = (props: {
 			onRequestClose={() => {
 				setIsOpen(false)
 				props.onClose()
-			}}>
-			<div className={styles.ApplicationModal}>
+			}}
+		>
+			<div className={styles.ApplicationModal} data-testid="application-modal">
 				<div className={styles.Info}>
 					<div className={styles.PersonalInfo}>
 						<img src={props.application.avatar} alt=" "></img>
 						<div>
-							<div className={styles.cell}>
+							<div className={styles.cell} data-testid="name">
 								{`${props.application.first_name} ${props.application.last_name}`}
 							</div>
-							<div className={styles.cell}>{props.application.company}</div>
-							<a className={styles.email} href={props.application.email}>
-								{props.application.email}
-							</a>
+							<div className={styles.cell} data-testid="company">
+								{props.application.company}
+							</div>
+							<div className={styles.cell} data-testid="email">
+								<a href={props.application.email}>{props.application.email}</a>
+							</div>
 						</div>
 					</div>
 					<div>
-						<div className={styles.cellAmount}>
+						<div className={styles.cellAmount} data-testid="loan-amount">
 							<sub>Loan amount</sub>
 							{`£${props.application.loan_amount}`}
 						</div>
 						<div className={styles.LoanInfo}>
-							<div className={styles.cell}>
+							<div className={styles.cell} data-testid="product">
 								<sub>Product</sub>
 								{props.application.loan_type}
 							</div>
-							<div className={styles.cell}>
+							<div className={styles.cell} data-testid="application-date">
 								<sub>Application date</sub>
 								{`${dateCreated.getDate()}-${
 									dateCreated.getMonth() + 1
 								}-${dateCreated.getFullYear()}`}
 							</div>
-							<div className={styles.cell}>
+							<div className={styles.cell} data-testid="expiry-date">
 								<sub>Expiry Date</sub>
 								{`${expiryDate.getDate()}-${
 									expiryDate.getMonth() + 1
@@ -84,7 +87,7 @@ export const ApplicationModal = (props: {
 					</div>
 				</div>
 				{props.application.loan_history.map((loan, index) => (
-					<SingleLoan loan={loan} key={index} />
+					<SingleLoan loan={loan} key={index} testId={index} />
 				))}
 			</div>
 		</Modal>
