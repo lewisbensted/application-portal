@@ -28,7 +28,7 @@ export const ErrorModal = (props: {
 		>
 			<div data-testid="error-modal" className="ErrorModal">
 				<Header size={2}>Something went wrong!</Header>
-				<Header>Please try loading the applications again.</Header>
+				<Header size={3}>Please try loading the applications again.</Header>
 				<Button
 					onClick={() => {
 						setModalIsOpen(false)

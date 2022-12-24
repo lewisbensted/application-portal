@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
 import { fireEvent, render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { applicationsFixture } from '../../__fixtures__/applications.fixture'
 import { ApplicationModal } from './ApplicationModal'
 
@@ -24,9 +23,7 @@ test('test application modal component functions correctly', () => {
 	expect(getByTestId('single-loan-0')).toBeInTheDocument()
 	expect(getByTestId('single-loan-1')).toBeInTheDocument()
 	expect(getByTestId('single-loan-2')).toBeInTheDocument()
-	fireEvent.click(document)
 	fireEvent.click(document.body)
-	userEvent.click(document.body)
 	expect(applicationModal).not.toBeInTheDocument()
 	expect(mockFn).toHaveBeenCalled()
 })

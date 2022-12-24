@@ -3,7 +3,7 @@ import nock from 'nock'
 import { applicationsFixture } from '../../__fixtures__/applications.fixture'
 import Applications from './Applications'
 
-describe('test api calls', () => {
+describe('test applications component functions correctly', () => {
 	xtest('test succesfull api call', async () => {
 		nock('http://localhost:3001')
 			.defaultReplyHeaders({
@@ -34,13 +34,7 @@ describe('test api calls', () => {
 		const { getByTestId } = render(<Applications />)
 		fireEvent.click(getByTestId('load-button'))
 		await waitFor(() => {
-			expect(getByTestId('error-modal')).toHaveTextContent(
-				'Something went wrong!'
-			)
-			expect(getByTestId('error-modal')).toContainElement(
-				getByTestId('error-button')
-			)
-			expect(getByTestId('error-button')).toHaveTextContent('OK')
+			expect(getByTestId('error-modal')).toBeInTheDocument()
 		})
 	})
 })

@@ -65,7 +65,7 @@ const Applications = () => {
 					) : (
 						<Button
 							onClick={() => {
-								if (numberVisible + increment >= applications.length) {
+								if (numberVisible + increment > applications.length) {
 									getApiData()
 								}
 								setNumberVisible(numberVisible + increment)

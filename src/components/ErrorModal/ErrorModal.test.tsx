@@ -7,6 +7,8 @@ test('test error modal component functions correctly', () => {
 	const { getByTestId } = render(<ErrorModal isError={true} onClose={mockFn} />)
 	const errorModal = getByTestId('error-modal')
 	expect(errorModal).toBeInTheDocument()
+	expect(errorModal).toContainElement(getByTestId('header-2'))
+	expect(errorModal).toContainElement(getByTestId('header-3'))
 	getByTestId('button').click()
 	expect(errorModal).not.toBeInTheDocument()
 	expect(mockFn).toHaveBeenCalled()

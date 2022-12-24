@@ -18,7 +18,6 @@ const SingleApplication = (props: { application: Application }) => {
 					}}
 				/>
 			) : null}
-			{/*'Is there a way of rendering this without the tertiary operator?'*/}
 
 			<div
 				className={styles.SingleApplication}
