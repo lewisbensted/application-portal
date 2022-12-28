@@ -32,7 +32,6 @@ const Applications = () => {
 				}
 			})
 			.catch(error => {
-				console.log(error.message)
 				setIsError(true)
 			})
 			.finally(() => {
