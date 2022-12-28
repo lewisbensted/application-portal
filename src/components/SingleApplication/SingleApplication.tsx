@@ -6,13 +6,13 @@ import { useState } from 'react'
 const SingleApplication = (props: { application: Application }) => {
 	const dateCreated = new Date(props.application.date_created)
 	const expiryDate = new Date(props.application.expiry_date)
-	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+	const [isModalOpen, setModalIsOpen] = useState<boolean>(false)
 	return (
 		<div>
-			{modalIsOpen ? (
+			{isModalOpen ? (
 				<ApplicationModal
 					application={props.application}
-					isOpen={modalIsOpen}
+					isOpen={isModalOpen}
 					onClose={() => {
 						setModalIsOpen(false)
 					}}
